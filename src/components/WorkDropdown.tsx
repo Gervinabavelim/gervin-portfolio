@@ -3,6 +3,7 @@
 import { useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
 import ProjectModal, { type Project } from "./ProjectModal";
+import MagneticButton from "./MagneticButton";
 
 const projects: Project[] = [
   {
@@ -35,7 +36,7 @@ export default function WorkDropdown() {
   return (
     <div>
       <div className="flex items-center gap-4">
-        <button
+        <MagneticButton
           onClick={() => setOpen(!open)}
           className="flex items-center gap-2 bg-[#1a1a1a] text-white px-6 py-3 text-xs font-semibold tracking-[0.15em] uppercase transition-colors hover:bg-[#333] cursor-pointer"
         >
@@ -55,13 +56,13 @@ export default function WorkDropdown() {
               d="M19 9l-7 7-7-7"
             />
           </svg>
-        </button>
-        <a
+        </MagneticButton>
+        <MagneticButton
           href="mailto:abavelimgervin@gmail.com"
-          className="border border-[#ccc] px-6 py-3 text-xs font-semibold tracking-[0.15em] uppercase text-[#1a1a1a] transition-colors hover:bg-[#eee]"
+          className="border border-[#ccc] px-6 py-3 text-xs font-semibold tracking-[0.15em] uppercase text-[#1a1a1a] transition-colors hover:bg-[#eee] cursor-pointer"
         >
           Contact
-        </a>
+        </MagneticButton>
       </div>
 
       <AnimatePresence initial={false}>
