@@ -65,7 +65,7 @@ export default function ContactSection() {
               Say Hello
             </motion.a>
             <motion.a
-              href="https://linkedin.com/in/gervinabavelim"
+              href="https://www.linkedin.com/in/gervin-abavelim-64054918a"
               target="_blank"
               rel="noopener noreferrer"
               className="inline-flex items-center gap-3 border border-[#ccc] px-8 py-4 text-xs font-semibold tracking-[0.15em] uppercase text-[#1a1a1a] transition-colors hover:bg-[#eee]"

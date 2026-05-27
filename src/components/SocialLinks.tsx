@@ -13,7 +13,7 @@ export default function SocialLinks() {
         <span>@yourusername</span>
       </a>
       <a
-        href="https://linkedin.com/in/"
+        href="https://www.linkedin.com/in/gervin-abavelim-64054918a"
         target="_blank"
         rel="noopener noreferrer"
         className="flex items-center gap-2 text-[#555] hover:text-[#1a1a1a] transition-colors"

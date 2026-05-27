@@ -4,7 +4,6 @@ import { useEffect, useState } from "react";
 import { motion, useScroll, useTransform } from "framer-motion";
 
 const links = [
-  { label: "Experience", href: "#experience" },
   { label: "Contact", href: "#contact" },
 ];
 
