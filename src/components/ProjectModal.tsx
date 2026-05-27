@@ -45,30 +45,37 @@ export default function ProjectModal({ project, onClose }: Props) {
           exit={{ opacity: 0 }}
           transition={{ duration: 0.25, ease }}
           onClick={onClose}
-          className="fixed inset-0 z-[60] bg-black/40 backdrop-blur-sm flex items-center justify-center p-4 md:p-8"
+          className="fixed inset-0 z-[60] bg-bg/80 backdrop-blur-md flex items-center justify-center p-4 md:p-8"
         >
           <motion.div
             initial={{ opacity: 0, y: 40, scale: 0.97 }}
             animate={{ opacity: 1, y: 0, scale: 1 }}
             exit={{ opacity: 0, y: 20, scale: 0.98 }}
-            transition={{ duration: 0.35, ease }}
+            transition={{ duration: 0.4, ease }}
             onClick={(e) => e.stopPropagation()}
-            className="relative bg-[#f9f9f9] max-w-2xl w-full max-h-[85vh] overflow-y-auto shadow-2xl"
+            className="relative bg-elevated border border-border max-w-3xl w-full max-h-[88vh] overflow-y-auto"
           >
-            <button
-              onClick={onClose}
-              aria-label="Close"
-              className="absolute top-5 right-5 w-9 h-9 flex items-center justify-center text-[#1a1a1a] hover:text-accent transition-colors cursor-pointer"
-            >
-              <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
-              </svg>
-            </button>
+            {/* Header strip */}
+            <div className="sticky top-0 bg-elevated border-b border-border px-6 md:px-10 py-4 flex items-center justify-between z-10">
+              <p className="text-[10px] font-mono uppercase tracking-[0.3em] text-muted">
+                {project.date} <span className="text-accent">/</span> Project
+              </p>
+              <button
+                onClick={onClose}
+                aria-label="Close"
+                className="w-8 h-8 flex items-center justify-center text-cream/60 hover:text-accent transition-colors cursor-pointer border border-border hover:border-accent"
+              >
+                <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
+                </svg>
+              </button>
+            </div>
 
-            <div className="p-8 md:p-12">
-              <p className="text-xs font-mono text-muted mb-4">{project.date}</p>
-
-              <h2 className="text-3xl md:text-4xl font-black tracking-tight mb-6">
+            <div className="p-6 md:p-10">
+              <h2
+                className="font-black uppercase tracking-tight leading-[0.9] mb-6"
+                style={{ fontSize: "clamp(2.5rem, 6vw, 4.5rem)" }}
+              >
                 {project.name}
                 <span className="text-accent">.</span>
               </h2>
@@ -77,26 +84,32 @@ export default function ProjectModal({ project, onClose }: Props) {
                 {project.tags.map((tag) => (
                   <span
                     key={tag}
-                    className="text-[10px] font-semibold tracking-[0.15em] uppercase border border-border px-2 py-1 text-muted"
+                    className="text-[10px] font-mono uppercase tracking-[0.2em] border border-border px-3 py-1.5 text-cream/70"
                   >
                     {tag}
                   </span>
                 ))}
               </div>
 
-              <p className="text-[#555] leading-relaxed mb-6">
+              <p className="text-cream/80 text-base md:text-lg leading-relaxed mb-10">
                 {project.longDescription}
               </p>
 
               {project.features && project.features.length > 0 && (
-                <div className="mb-8">
-                  <p className="text-xs font-semibold tracking-[0.2em] uppercase text-muted mb-4">
+                <div className="mb-10">
+                  <p className="text-[10px] font-mono uppercase tracking-[0.3em] text-muted mb-5 flex items-center gap-3">
+                    <span className="h-px w-6 bg-accent" />
                     Key Features
                   </p>
-                  <ul className="space-y-2">
-                    {project.features.map((feature) => (
-                      <li key={feature} className="flex gap-3 text-sm text-[#555] leading-relaxed">
-                        <span className="text-accent mt-0.5">—</span>
+                  <ul className="space-y-3">
+                    {project.features.map((feature, i) => (
+                      <li
+                        key={feature}
+                        className="flex gap-4 text-sm md:text-base text-cream/70 leading-relaxed border-t border-border pt-3"
+                      >
+                        <span className="text-accent font-mono shrink-0">
+                          {String(i + 1).padStart(2, "0")}
+                        </span>
                         <span>{feature}</span>
                       </li>
                     ))}
@@ -104,12 +117,12 @@ export default function ProjectModal({ project, onClose }: Props) {
                 </div>
               )}
 
-              <div className="flex flex-col sm:flex-row gap-3 pt-6 border-t border-border">
+              <div className="flex flex-col sm:flex-row gap-3 pt-8 border-t border-border">
                 <a
                   href={project.github}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="inline-flex items-center justify-center gap-2 bg-[#1a1a1a] text-white px-6 py-3 text-xs font-semibold tracking-[0.15em] uppercase transition-colors hover:bg-[#333]"
+                  className="inline-flex items-center justify-center gap-3 bg-cream text-bg px-6 py-4 text-xs font-bold tracking-[0.2em] uppercase hover:bg-accent hover:text-cream transition-colors"
                 >
                   <svg className="w-4 h-4" viewBox="0 0 24 24" fill="currentColor">
                     <path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12" />
@@ -121,12 +134,10 @@ export default function ProjectModal({ project, onClose }: Props) {
                     href={project.liveUrl}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="inline-flex items-center justify-center gap-2 border border-[#ccc] px-6 py-3 text-xs font-semibold tracking-[0.15em] uppercase text-[#1a1a1a] transition-colors hover:bg-[#eee]"
+                    className="inline-flex items-center justify-center gap-3 border border-border text-cream px-6 py-4 text-xs font-bold tracking-[0.2em] uppercase hover:border-accent hover:text-accent transition-colors"
                   >
                     Live Demo
-                    <svg className="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
-                    </svg>
+                    <span className="text-base leading-none">↗</span>
                   </a>
                 )}
               </div>
