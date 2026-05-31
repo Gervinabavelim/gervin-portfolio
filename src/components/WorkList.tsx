@@ -11,6 +11,13 @@ type Project = {
 
 const projects: Project[] = [
   {
+    date: "2026.05",
+    name: "Laundry Service",
+    description:
+      "A laundry service booking and order management platform with authentication and real-time order tracking.",
+    href: "https://laundry-service-omega.vercel.app",
+  },
+  {
     date: "2025.11",
     name: "Orderly",
     description:
