@@ -18,7 +18,7 @@ const projects: Project[] = [
     href: "https://laundry-service-omega.vercel.app",
   },
   {
-    date: "2025.11",
+    date: "2026.04",
     name: "Orderly",
     description:
       "An order management system for service businesses with real-time dashboard, Paystack payments, and WhatsApp messaging.",

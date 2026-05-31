@@ -1,7 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { useState } from "react";
+import { useRef, useState } from "react";
 import WorkList from "./WorkList";
 
 const ease = [0.22, 1, 0.36, 1] as [number, number, number, number];
@@ -47,6 +47,20 @@ const socials = [
 
 export default function HeroSection() {
   const [showWork, setShowWork] = useState(false);
+  const workRef = useRef<HTMLDivElement>(null);
+  const buttonRef = useRef<HTMLDivElement>(null);
+
+  const toggleWork = () => {
+    if (showWork) {
+      setShowWork(false);
+      buttonRef.current?.scrollIntoView({ behavior: "smooth", block: "center" });
+    } else {
+      setShowWork(true);
+      setTimeout(() => {
+        workRef.current?.scrollIntoView({ behavior: "smooth", block: "start" });
+      }, 100);
+    }
+  };
 
   return (
     <section className="relative min-h-screen px-8 md:px-16 lg:px-24 pt-16 pb-0 overflow-hidden">
@@ -123,13 +137,14 @@ export default function HeroSection() {
 
         {/* CTA buttons */}
         <motion.div
+          ref={buttonRef}
           initial={{ opacity: 0, y: 12 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.75, duration: 0.6, ease }}
           className="flex items-center gap-3 mb-12"
         >
           <button
-            onClick={() => setShowWork(!showWork)}
+            onClick={toggleWork}
             className="flex items-center gap-2.5 bg-text text-bg px-6 py-3.5 text-[11px] font-bold tracking-[0.2em] uppercase hover:bg-text/85 transition-colors cursor-pointer rounded-sm"
           >
             {showWork ? "Hide Work" : "View Work"}
@@ -151,6 +166,7 @@ export default function HeroSection() {
 
         {/* Expandable work section */}
         <motion.div
+          ref={workRef}
           initial={false}
           animate={{
             height: showWork ? "auto" : 0,
