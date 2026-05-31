@@ -13,7 +13,7 @@ export default function ContactSection() {
   return (
     <section
       id="contact"
-      className="px-6 md:px-12 py-24 md:py-32 border-t border-border"
+      className="px-6 md:px-16 lg:px-24 py-24 md:py-36 border-t border-border"
     >
       <motion.div
         ref={ref}
@@ -24,33 +24,31 @@ export default function ContactSection() {
       >
         {/* Left meta column */}
         <div className="md:col-span-3">
-          <p className="text-[10px] font-mono uppercase tracking-[0.3em] text-muted mb-4 flex items-center gap-3">
-            <span className="h-px w-8 bg-accent" />
-            Contact / 002
+          <p className="text-[11px] uppercase tracking-[0.2em] text-muted mb-5 flex items-center gap-3">
+            <span className="h-px w-10 bg-accent/60" />
+            Get in Touch
           </p>
-          <p className="text-xs font-mono text-muted leading-relaxed">
-            Available for select freelance and full-time roles. Based in Manila, working worldwide.
+          <p className="text-sm text-muted leading-relaxed">
+            Available for freelance and full-time opportunities. Based in Manila, working worldwide.
           </p>
         </div>
 
         {/* Right content */}
         <div className="md:col-span-9">
           <h2
-            className="font-black uppercase leading-[0.85] tracking-[-0.03em] mb-10"
-            style={{ fontSize: "clamp(2.75rem, 9vw, 8rem)" }}
+            className="font-serif font-bold leading-[0.9] tracking-[-0.02em] mb-12"
+            style={{ fontSize: "clamp(2.5rem, 8vw, 6rem)" }}
           >
-            Let&apos;s build
-            <br />
-            something<span className="text-accent">.</span>
+            Let&apos;s build<br />something<span className="text-accent">.</span>
           </h2>
 
           <div className="flex flex-col sm:flex-row gap-3 mb-16">
             <MagneticButton
               href="mailto:abavelimgervin@gmail.com"
-              className="inline-flex items-center gap-3 bg-cream text-bg px-6 py-4 text-xs font-bold tracking-[0.2em] uppercase hover:bg-accent hover:text-cream transition-colors cursor-pointer"
+              className="inline-flex items-center gap-3 bg-accent text-white px-7 py-4 text-[11px] font-semibold tracking-[0.15em] uppercase hover:bg-accent-hover transition-colors cursor-pointer rounded-sm"
             >
               <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
               </svg>
               abavelimgervin@gmail.com
             </MagneticButton>
@@ -58,15 +56,15 @@ export default function ContactSection() {
               href="https://www.linkedin.com/in/gervin-abavelim-64054918a"
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center gap-3 border border-border text-cream px-6 py-4 text-xs font-bold tracking-[0.2em] uppercase hover:border-accent hover:text-accent transition-colors cursor-pointer"
+              className="inline-flex items-center gap-3 border border-border text-cream/80 px-7 py-4 text-[11px] font-semibold tracking-[0.15em] uppercase hover:border-accent hover:text-accent transition-colors cursor-pointer rounded-sm"
             >
               LinkedIn
-              <span className="text-base leading-none">↗</span>
+              <span className="text-sm leading-none">↗</span>
             </MagneticButton>
           </div>
 
           {/* Social row */}
-          <div className="grid grid-cols-2 md:grid-cols-3 gap-x-8 gap-y-4 pt-8 border-t border-border">
+          <div className="grid grid-cols-2 md:grid-cols-3 gap-x-8 gap-y-6 pt-10 border-t border-border">
             {[
               {
                 label: "GitHub",
@@ -89,14 +87,14 @@ export default function ContactSection() {
                 href={s.href}
                 target={s.href.startsWith("http") ? "_blank" : undefined}
                 rel="noopener noreferrer"
-                className="group flex flex-col gap-1 text-cream hover:text-accent transition-colors"
+                className="group flex flex-col gap-1.5 text-cream/80 hover:text-accent transition-colors"
               >
-                <span className="text-[10px] font-mono uppercase tracking-[0.3em] text-muted">
+                <span className="text-[11px] uppercase tracking-[0.15em] text-muted">
                   {s.label}
                 </span>
-                <span className="text-base font-bold flex items-center gap-2">
+                <span className="text-base font-medium flex items-center gap-2">
                   {s.handle}
-                  <span className="opacity-0 group-hover:opacity-100 transition-opacity">
+                  <span className="opacity-0 group-hover:opacity-100 transition-opacity text-sm">
                     ↗
                   </span>
                 </span>
@@ -106,13 +104,10 @@ export default function ContactSection() {
         </div>
       </motion.div>
 
-      {/* Footer line */}
-      <div className="mt-24 pt-8 border-t border-border flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3 text-[10px] font-mono uppercase tracking-[0.3em] text-muted">
-        <p>
-          © {new Date().getFullYear()} Gervin Abavelim{" "}
-          <span className="text-accent">/</span> All rights reserved
-        </p>
-        <p>Built with Next.js + Framer Motion</p>
+      {/* Footer */}
+      <div className="mt-28 pt-8 border-t border-border flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3 text-[11px] tracking-[0.1em] text-muted/60">
+        <p>© {new Date().getFullYear()} Gervin Abavelim</p>
+        <p>Built with Next.js & Framer Motion</p>
       </div>
     </section>
   );

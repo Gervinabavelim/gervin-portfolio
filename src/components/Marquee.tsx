@@ -5,19 +5,18 @@ type Props = {
 };
 
 export default function Marquee({ items }: Props) {
-  // Double the items so the loop seams together.
   const loop = [...items, ...items];
 
   return (
-    <div className="overflow-hidden border-y border-border py-5 -mx-6 md:-mx-12">
-      <div className="flex gap-12 whitespace-nowrap animate-marquee w-max">
+    <div className="overflow-hidden border-y border-border py-4 -mx-6 md:-mx-16 lg:-mx-24">
+      <div className="flex gap-16 whitespace-nowrap animate-marquee w-max">
         {loop.map((item, i) => (
           <span
             key={i}
-            className="font-mono text-sm uppercase tracking-[0.25em] text-cream/80 flex items-center gap-12"
+            className="text-[11px] uppercase tracking-[0.2em] text-cream/30 flex items-center gap-16"
           >
             {item}
-            <span className="text-accent">/</span>
+            <span className="text-accent/40">·</span>
           </span>
         ))}
       </div>

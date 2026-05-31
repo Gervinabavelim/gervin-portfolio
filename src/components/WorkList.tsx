@@ -51,24 +51,12 @@ function ProjectRow({
       onMouseEnter={() => setHover(true)}
       onMouseLeave={() => setHover(false)}
       onClick={onOpen}
-      className="w-full text-left border-t border-border py-8 md:py-12 cursor-pointer group relative overflow-hidden"
+      className="w-full text-left border-t border-border py-10 md:py-14 cursor-pointer group relative overflow-hidden transition-colors hover:bg-elevated/50"
     >
-      {/* Red sweep behind row on hover */}
-      <motion.div
-        initial={{ x: "-101%" }}
-        animate={{ x: hover ? "0%" : "-101%" }}
-        transition={{ duration: 0.5, ease }}
-        className="absolute inset-0 bg-accent z-0"
-      />
-
       <div className="relative z-10 grid grid-cols-12 gap-4 md:gap-8 items-center px-4 md:px-6">
         {/* Number */}
         <div className="col-span-2 md:col-span-1">
-          <span
-            className={`font-mono text-sm md:text-base tracking-tight transition-colors ${
-              hover ? "text-bg" : "text-muted"
-            }`}
-          >
+          <span className="text-sm text-muted/60 tabular-nums">
             {num}
           </span>
         </div>
@@ -76,41 +64,29 @@ function ProjectRow({
         {/* Name */}
         <div className="col-span-10 md:col-span-5">
           <h3
-            className={`font-black uppercase tracking-tight leading-none transition-colors ${
-              hover ? "text-bg" : "text-cream"
-            }`}
-            style={{ fontSize: "clamp(1.75rem, 5vw, 3.5rem)" }}
+            className="font-serif font-bold tracking-tight leading-none transition-colors group-hover:text-accent"
+            style={{ fontSize: "clamp(1.75rem, 4.5vw, 3rem)" }}
           >
             {project.name}
           </h3>
         </div>
 
-        {/* Description (hidden on mobile) */}
+        {/* Description */}
         <div className="hidden md:block md:col-span-4">
-          <p
-            className={`text-sm leading-relaxed transition-colors ${
-              hover ? "text-bg/80" : "text-muted"
-            }`}
-          >
+          <p className="text-sm leading-relaxed text-muted transition-colors group-hover:text-cream/50">
             {project.description}
           </p>
         </div>
 
         {/* Year + arrow */}
-        <div className="col-span-12 md:col-span-2 flex items-center justify-end gap-3 md:gap-6 mt-3 md:mt-0">
-          <span
-            className={`font-mono text-xs uppercase tracking-[0.2em] transition-colors ${
-              hover ? "text-bg/80" : "text-muted"
-            }`}
-          >
+        <div className="col-span-12 md:col-span-2 flex items-center justify-end gap-4 md:gap-6 mt-3 md:mt-0">
+          <span className="text-xs uppercase tracking-[0.15em] text-muted">
             {project.date.split(".")[0]}
           </span>
           <motion.span
-            animate={{ x: hover ? 6 : 0, rotate: hover ? -45 : 0 }}
+            animate={{ x: hover ? 4 : 0 }}
             transition={{ duration: 0.3, ease }}
-            className={`text-2xl leading-none transition-colors ${
-              hover ? "text-bg" : "text-cream"
-            }`}
+            className="text-xl leading-none text-muted transition-colors group-hover:text-accent"
           >
             →
           </motion.span>
@@ -118,12 +94,8 @@ function ProjectRow({
       </div>
 
       {/* Mobile description */}
-      <div className="md:hidden relative z-10 px-4 mt-3">
-        <p
-          className={`text-xs leading-relaxed transition-colors ${
-            hover ? "text-bg/80" : "text-muted"
-          }`}
-        >
+      <div className="md:hidden relative z-10 px-4 mt-4">
+        <p className="text-xs leading-relaxed text-muted">
           {project.description}
         </p>
       </div>
@@ -137,29 +109,27 @@ export default function WorkList() {
   const [active, setActive] = useState<Project | null>(null);
 
   return (
-    <section id="work" className="px-6 md:px-12 py-24 md:py-32">
+    <section id="work" className="px-6 md:px-16 lg:px-24 py-24 md:py-36">
       {/* Section header */}
       <motion.header
         ref={headerRef}
         initial={{ opacity: 0, y: 20 }}
         animate={headerInView ? { opacity: 1, y: 0 } : {}}
         transition={{ duration: 0.7, ease }}
-        className="grid md:grid-cols-12 gap-8 mb-12 md:mb-20"
+        className="grid md:grid-cols-12 gap-8 mb-16 md:mb-24"
       >
         <div className="md:col-span-3">
-          <p className="text-[10px] font-mono uppercase tracking-[0.3em] text-muted flex items-center gap-3">
-            <span className="h-px w-8 bg-accent" />
-            Work / 2024–26
+          <p className="text-[11px] uppercase tracking-[0.2em] text-muted flex items-center gap-3">
+            <span className="h-px w-10 bg-accent/60" />
+            Selected Work
           </p>
         </div>
         <div className="md:col-span-9">
           <h2
-            className="font-black uppercase leading-[0.85] tracking-[-0.03em]"
-            style={{ fontSize: "clamp(2.5rem, 7vw, 6rem)" }}
+            className="font-serif font-bold leading-[0.9] tracking-[-0.02em]"
+            style={{ fontSize: "clamp(2.5rem, 6vw, 5rem)" }}
           >
-            Selected
-            <br />
-            projects<span className="text-accent">.</span>
+            Projects I&apos;ve<br />built<span className="text-accent">.</span>
           </h2>
         </div>
       </motion.header>
@@ -176,21 +146,21 @@ export default function WorkList() {
         ))}
       </div>
 
-      {/* "More on the way" placeholder row */}
-      <div className="border-b border-border py-8 md:py-12 px-4 md:px-6">
+      {/* Placeholder row */}
+      <div className="border-b border-border py-10 md:py-14 px-4 md:px-6">
         <div className="grid grid-cols-12 gap-4 md:gap-8 items-center">
-          <span className="col-span-2 md:col-span-1 font-mono text-sm text-muted">
+          <span className="col-span-2 md:col-span-1 text-sm text-muted/40 tabular-nums">
             {String(projects.length + 1).padStart(2, "0")}
           </span>
           <div className="col-span-10 md:col-span-11 flex items-center justify-between gap-4">
             <h3
-              className="font-black uppercase tracking-tight leading-none text-muted"
-              style={{ fontSize: "clamp(1.75rem, 5vw, 3.5rem)" }}
+              className="font-serif font-bold tracking-tight leading-none text-muted/40"
+              style={{ fontSize: "clamp(1.75rem, 4.5vw, 3rem)" }}
             >
-              More on the way
+              More coming soon
             </h3>
-            <span className="font-mono text-xs uppercase tracking-[0.2em] text-muted">
-              Soon
+            <span className="text-xs uppercase tracking-[0.15em] text-muted/40">
+              2026
             </span>
           </div>
         </div>

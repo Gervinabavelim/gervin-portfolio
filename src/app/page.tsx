@@ -5,7 +5,7 @@ import ContactSection from "@/components/ContactSection";
 
 export default function Home() {
   return (
-    <div className="noise">
+    <div>
       <NavBar />
       <main>
         <HeroSection />
