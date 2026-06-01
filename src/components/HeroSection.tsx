@@ -69,7 +69,7 @@ export default function HeroSection() {
 
       <div className="relative z-10">
         {/* Top row: role label + socials */}
-        <div className="flex items-start justify-between mb-12 md:mb-16">
+        <div className="flex items-start justify-between mb-6 md:mb-8">
           <motion.p
             initial={{ opacity: 0, y: 8 }}
             animate={{ opacity: 1, y: 0 }}
@@ -105,12 +105,13 @@ export default function HeroSection() {
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.15, duration: 0.8, ease }}
-          className="font-black leading-[0.88] tracking-[-0.04em] mb-8"
-          style={{ fontSize: "clamp(3.5rem, 12vw, 11rem)" }}
+          className="font-[900] leading-[0.92] tracking-[-0.03em] mb-8"
+          style={{ fontSize: "clamp(3.5rem, 10vw, 7rem)" }}
         >
           Gervin
           <br />
-          Abavelim<span className="text-accent">.</span>
+          Abavelim
+          <span className="inline-block w-[0.12em] h-[0.12em] rounded-full bg-accent relative -top-[0.05em] ml-[0.04em]" />
         </motion.h1>
 
         {/* Divider */}
@@ -159,6 +160,12 @@ export default function HeroSection() {
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M19 9l-7 7-7-7" />
             </motion.svg>
           </button>
+          <a
+            href="mailto:abavelimgervin@gmail.com"
+            className="border border-text/20 text-text px-6 py-3.5 text-[11px] font-bold tracking-[0.2em] uppercase hover:border-text/50 transition-colors cursor-pointer rounded-sm"
+          >
+            Contact
+          </a>
         </motion.div>
 
         {/* Divider before work */}
