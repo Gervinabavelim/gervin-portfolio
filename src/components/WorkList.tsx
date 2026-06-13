@@ -11,6 +11,13 @@ type Project = {
 
 const projects: Project[] = [
   {
+    date: "2026.06",
+    name: "Project Tracker",
+    description:
+      "A macOS app that auto-tracks your coding projects. Track, build, and ship with ease.",
+    href: "https://github.com/Gervinabavelim/project-tracker",
+  },
+  {
     date: "2026.05",
     name: "Laundry Service",
     description:
