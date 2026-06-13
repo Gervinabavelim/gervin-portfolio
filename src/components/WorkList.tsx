@@ -15,7 +15,7 @@ const projects: Project[] = [
     name: "Project Tracker",
     description:
       "A macOS app that auto-tracks your coding projects. Track, build, and ship with ease.",
-    href: "https://github.com/Gervinabavelim/project-tracker",
+    href: "https://landing-lime-nine-14.vercel.app/",
   },
   {
     date: "2026.05",
