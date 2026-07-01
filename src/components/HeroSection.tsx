@@ -136,6 +136,27 @@ export default function HeroSection() {
           .
         </motion.p>
 
+        {/* Mobile socials */}
+        <motion.div
+          initial={{ opacity: 0, y: 12 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ delay: 0.65, duration: 0.5, ease }}
+          className="flex md:hidden flex-wrap gap-4 mb-8"
+        >
+          {socials.map((s) => (
+            <a
+              key={s.label}
+              href={s.href}
+              target={s.href.startsWith("mailto") ? undefined : "_blank"}
+              rel="noopener noreferrer"
+              className="flex items-center gap-2 text-text/70 hover:text-accent transition-colors"
+            >
+              {s.icon}
+              <span className="text-[12px] font-mono">{s.label}</span>
+            </a>
+          ))}
+        </motion.div>
+
         {/* CTA buttons */}
         <motion.div
           ref={buttonRef}
