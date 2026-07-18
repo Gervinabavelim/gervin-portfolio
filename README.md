@@ -1,5 +1,9 @@
 This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
 
+## Architecture
+
+[View the codebase architecture map on Foglamp](https://foglamp.dev/scan/gervin-portfolio-fv1gre)
+
 ## Getting Started
 
 First, run the development server:
