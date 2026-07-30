@@ -24,7 +24,7 @@ const tools = [
   {
     title: "DevOps",
     icon: "🚀",
-    tags: ["Git", "Docker", "CI/CD", "Netlify"],
+    tags: ["Git", "Docker", "CI/CD", "Vercel"],
     desc: "Automating deployments and maintaining reliable infrastructure.",
   },
 ];
