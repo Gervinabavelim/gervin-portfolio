@@ -1,13 +1,18 @@
 @import "tailwindcss";
 
 @theme inline {
-  --font-sans: var(--font-inter), system-ui, sans-serif;
+  --font-sans: var(--font-dm-sans), system-ui, sans-serif;
+  --font-display: var(--font-inter-display), system-ui, sans-serif;
   --font-mono: var(--font-jetbrains), ui-monospace, monospace;
-  --color-bg: #f4f3ef;
-  --color-text: #1a1a1a;
-  --color-accent: #c23b22;
-  --color-muted: #999;
-  --color-border: #ddd;
+  --color-primary: #1b2e4a;
+  --color-accent: #3b82f6;
+  --color-accent-dark: #2563eb;
+  --color-text: #1e293b;
+  --color-muted: #64748b;
+  --color-bg: #ffffff;
+  --color-bg-alt: #eff6ff;
+  --color-border: #e2e8f0;
+  --color-cream: #f8fafc;
 }
 
 body {
@@ -34,11 +39,43 @@ html {
   background: var(--color-bg);
 }
 ::-webkit-scrollbar-thumb {
-  background: #ccc;
+  background: #cbd5e1;
   border-radius: 2px;
 }
 ::-webkit-scrollbar-thumb:hover {
   background: var(--color-accent);
+}
+
+@keyframes marquee {
+  from { transform: translateX(0); }
+  to { transform: translateX(-50%); }
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-12px); }
+}
+
+@keyframes typewriter-blink {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0; }
+}
+
+@keyframes cloud-drift {
+  0% { transform: translateX(-10%); }
+  100% { transform: translateX(110%); }
+}
+
+.animate-marquee {
+  animation: marquee 30s linear infinite;
+}
+
+.animate-float {
+  animation: float 6s ease-in-out infinite;
+}
+
+.animate-blink {
+  animation: typewriter-blink 1s step-end infinite;
 }
 
 @media (prefers-reduced-motion: reduce) {

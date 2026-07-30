@@ -1,22 +1,33 @@
 "use client";
 
-type Props = {
-  items: string[];
-};
+const techStack = [
+  "React",
+  "Next.js",
+  "TypeScript",
+  "Node.js",
+  "Python",
+  "PostgreSQL",
+  "Tailwind CSS",
+  "Prisma",
+  "Docker",
+  "Git",
+  "REST APIs",
+  "Framer Motion",
+];
 
-export default function Marquee({ items }: Props) {
-  const loop = [...items, ...items];
+export default function Marquee() {
+  const loop = [...techStack, ...techStack];
 
   return (
-    <div className="overflow-hidden border-y border-border py-4 -mx-6 md:-mx-16 lg:-mx-24">
-      <div className="flex gap-16 whitespace-nowrap animate-marquee w-max">
+    <div className="overflow-hidden bg-primary py-4">
+      <div className="flex gap-12 whitespace-nowrap animate-marquee w-max">
         {loop.map((item, i) => (
           <span
             key={i}
-            className="text-[11px] uppercase tracking-[0.2em] text-cream/30 flex items-center gap-16"
+            className="text-xs uppercase tracking-[0.2em] text-white/40 flex items-center gap-12 font-medium"
           >
             {item}
-            <span className="text-accent/40">·</span>
+            <span className="text-accent/60">&#9670;</span>
           </span>
         ))}
       </div>
